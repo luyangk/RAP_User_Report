@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>Wedding Invitation 陆阳&amp;牛牛</title>
+    <meta name="description" content="我们结婚啦-陆阳&amp;牛牛">
+    <link rel="stylesheet" href="./css/style.css"/>
+    <!--custom style-->
+    <style>
+        .current .title{
+            -webkit-animation: slideToTop .8s ease both;
+        }
+
+        .current .subtitle{
+            -webkit-animation: slideToTop .8s 0.3s ease both;
+        }
+    </style>
+    <!--
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    -->
+    <!--
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        
+        //Mango-WeixinJsSDK   2015-1-12  
+        wx.config({
+            //debug: true,
+            appId: 'wxcac60c5221e2cc87',
+            timestamp:1489985105,
+            nonceStr: 'HxeGigdgfedP4TVx',
+            signature: 'fe2824eeb3ec09d20ac282b1813c78bffba6f886',
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo'
+            ]
+        });
+
+        wx.ready(function () {
+            var shareData = {
+                title: window.title,
+                desc: '2017年05月01日诚挚邀请您参加我们的婚礼,共同分享我们的幸福与喜悦',
+                link: window.location.href,
+                imgUrl: 'http://luccalu.top/WeddingPage/img/share.jpg'
+            } 
+        
+            wx.onMenuShareAppMessage(shareData);
+            wx.onMenuShareTimeline(shareData);
+            wx.onMenuShareQQ(shareData);
+            wx.onMenuShareWeibo(shareData);
+        });
+
+        wx.error(function (res) {
+            alert(res.errMsg);
+        });
+    </script>
+    -->
+</head>
+<body>
+<div style='margin:0 auto;display:none;'>
+<img src='./img/share.jpg' />
+</div>
+<div class="page-wrap">
+    <div class="page">
+        <div class="text_box1">
+            <div class="title1">陆阳 &amp; 牛牛</div>
+            <div class="subtitle1">Wedding Invitation</div>
+        </div>
+        
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="title2"></div>
+        <div class="subtitle2"></div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="title3">page three</div>
+        <div class="subtitle3">page three subtitle</div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="text_box4">
+            <div class="title4">结婚典礼</div>
+            <div class="subtitle4">日期：2017年10月02日</div>
+            <div class="subtitle4">时间：星期一 12点00分</div>
+        </div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="text_box5">
+            <div class="title5">同煤国际酒店</div>
+            <div class="subtitle5">大同市矿区同泉路同煤大厦</div>
+            <div class="subtitle5">0352-4198888</div>
+        </div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="title6">page five</div>
+        <div class="subtitle6">page five subtitle</div>
+    </div>
+</div>
+
+<script src="./js/zepto.min.js"></script>
+<script src="./js/PageSlider.js"></script>
+<script src="./js/typed.js"></script>
+<script>
+    var pageSliderIns = new PageSlider({
+        pages: $('.page-wrap .page'),
+        gestureFollowing: true,
+        onchange: function () {
+            Typed.new(".title2", {
+                strings: ["四年前她与他相距1400公里，她在大同，他在上海，他们互不相识。</br>在众多选择中她从北京飞往了纽卡斯尔，而他从上海飞往了伦敦，那时他们相距400公里。</br>不久后他们坐在同一个教室里，那天他坐在第一排，她在最后一排。</br>时不时的遇见，偶尔修同一门课，见面时打个招呼，那时他们开始坐在隔壁座位上课了。</br>一个小作业把他们绑在了一起，她写程序，他也写程序，写累了一起去逛街，一起去买菜做饭。</br>作业做完了他们勾搭到一起了。</br></br>四年后的这一天他们终于要结婚了......"],
+                //三年前她与他相拒1400公里，</br>她在大同，他在上海，他们互不相识。</br>在众多选择中她从北京飞往了纽卡斯尔，</br>而他从上海飞往了伦敦，</br>那时他们相拒400公里。</br>不久后他们坐在同一个教室里，</br>那天他坐在第一排，她在最后一排。</br>时不时的遇见，</br>偶尔修同一门课，</br>见面时打个招呼，</br>那时他们开始坐在隔壁座位上课了。</br>一个小作业把他们绑在了一起，</br>她写程序，他也写程序，</br>写累了一起去逛街，一起去买菜做饭。</br>作业做完了他们勾搭到一起了。</br></br>三年后的这一天他们终于要结婚了.......
+                typeSpeed: 80,
+                showCursor: false,
+                contentType: "html",
+                startDelay: 10
+            });
+        }
+    });
+    //document.addEventListener("DOMContentLoaded", function(){
+    //document.addEventListener("pageSliderIns", function(){
+    //});
+</script>
+</body>
+</html>
