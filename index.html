@@ -6,7 +6,7 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta name="format-detection" content="telephone=no, email=no">
-    <title>RAP User Report Demo</title>
+    <title>3M智能空气净化器2017个人年度报告</title>
     <meta name="description" content="RAP User Report Demo">
     <link rel="stylesheet" href="./css/style.css"/>
     <!--custom style-->
@@ -25,8 +25,8 @@
     <!--
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
-        
-        //Mango-WeixinJsSDK   2015-1-12  
+
+        //Mango-WeixinJsSDK   2015-1-12
         wx.config({
             //debug: true,
             appId: 'wxcac60c5221e2cc87',
@@ -47,8 +47,8 @@
                 desc: '2017年05月01日诚挚邀请您参加我们的婚礼,共同分享我们的幸福与喜悦',
                 link: window.location.href,
                 imgUrl: 'http://luccalu.top/WeddingPage/img/share.jpg'
-            } 
-        
+            }
+
             wx.onMenuShareAppMessage(shareData);
             wx.onMenuShareTimeline(shareData);
             wx.onMenuShareQQ(shareData);
@@ -60,15 +60,20 @@
         });
     </script>
     -->
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9dvxtovGlPUzC4GxV46Qjdx4NQkfcMcZ"></script>
+    <script type="text/javascript" src="echarts.js"></script>
+    <script type="text/javascript" src="extension/bmap.min.js"></script>
 </head>
 <body>
 <div style='margin:0 auto;display:none;'>
-<img src='./img/share.jpg' />
+<img src='./img/bak_2.jpg' />
 </div>
 <div class="page-wrap">
     <div class="page">
         <div class="text_box1">
-            <div class="title1">RAP User Report Demo</div>
+            <div class="title1">3M智能空气净化器</div>
+            <div class="title1" style="padding-top: 0%;">2017个人年度报告</div>
             <div class="subtitle1">Science. Applied to Life.</div>
         </div>
 
@@ -81,37 +86,778 @@
         <div class="arrow"></div>
     </div>
     <div class="page">
+        <div id="main3" class="map_box3"></div>
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main3'));
+
+            var data = [
+                {name: '上海', value: 90},
+                {name: '北京', value: 95}
+            ];
+
+            var lineData = [
+                [{name: '上海'},{name: '北京', value: 95}]
+            ];
+
+            var geoCoordMap = {
+                '海门':[121.15,31.89],
+                '鄂尔多斯':[109.781327,39.608266],
+                '招远':[120.38,37.35],
+                '舟山':[122.207216,29.985295],
+                '齐齐哈尔':[123.97,47.33],
+                '盐城':[120.13,33.38],
+                '赤峰':[118.87,42.28],
+                '青岛':[120.33,36.07],
+                '乳山':[121.52,36.89],
+                '金昌':[102.188043,38.520089],
+                '泉州':[118.58,24.93],
+                '莱西':[120.53,36.86],
+                '日照':[119.46,35.42],
+                '胶南':[119.97,35.88],
+                '南通':[121.05,32.08],
+                '拉萨':[91.11,29.97],
+                '云浮':[112.02,22.93],
+                '梅州':[116.1,24.55],
+                '文登':[122.05,37.2],
+                '上海':[121.48,31.22],
+                '攀枝花':[101.718637,26.582347],
+                '威海':[122.1,37.5],
+                '承德':[117.93,40.97],
+                '厦门':[118.1,24.46],
+                '汕尾':[115.375279,22.786211],
+                '潮州':[116.63,23.68],
+                '丹东':[124.37,40.13],
+                '太仓':[121.1,31.45],
+                '曲靖':[103.79,25.51],
+                '烟台':[121.39,37.52],
+                '福州':[119.3,26.08],
+                '瓦房店':[121.979603,39.627114],
+                '即墨':[120.45,36.38],
+                '抚顺':[123.97,41.97],
+                '玉溪':[102.52,24.35],
+                '张家口':[114.87,40.82],
+                '阳泉':[113.57,37.85],
+                '莱州':[119.942327,37.177017],
+                '湖州':[120.1,30.86],
+                '汕头':[116.69,23.39],
+                '昆山':[120.95,31.39],
+                '宁波':[121.56,29.86],
+                '湛江':[110.359377,21.270708],
+                '揭阳':[116.35,23.55],
+                '荣成':[122.41,37.16],
+                '连云港':[119.16,34.59],
+                '葫芦岛':[120.836932,40.711052],
+                '常熟':[120.74,31.64],
+                '东莞':[113.75,23.04],
+                '河源':[114.68,23.73],
+                '淮安':[119.15,33.5],
+                '泰州':[119.9,32.49],
+                '南宁':[108.33,22.84],
+                '营口':[122.18,40.65],
+                '惠州':[114.4,23.09],
+                '江阴':[120.26,31.91],
+                '蓬莱':[120.75,37.8],
+                '韶关':[113.62,24.84],
+                '嘉峪关':[98.289152,39.77313],
+                '广州':[113.23,23.16],
+                '延安':[109.47,36.6],
+                '太原':[112.53,37.87],
+                '清远':[113.01,23.7],
+                '中山':[113.38,22.52],
+                '昆明':[102.73,25.04],
+                '寿光':[118.73,36.86],
+                '盘锦':[122.070714,41.119997],
+                '长治':[113.08,36.18],
+                '深圳':[114.07,22.62],
+                '珠海':[113.52,22.3],
+                '宿迁':[118.3,33.96],
+                '咸阳':[108.72,34.36],
+                '铜川':[109.11,35.09],
+                '平度':[119.97,36.77],
+                '佛山':[113.11,23.05],
+                '海口':[110.35,20.02],
+                '江门':[113.06,22.61],
+                '章丘':[117.53,36.72],
+                '肇庆':[112.44,23.05],
+                '大连':[121.62,38.92],
+                '临汾':[111.5,36.08],
+                '吴江':[120.63,31.16],
+                '石嘴山':[106.39,39.04],
+                '沈阳':[123.38,41.8],
+                '苏州':[120.62,31.32],
+                '茂名':[110.88,21.68],
+                '嘉兴':[120.76,30.77],
+                '长春':[125.35,43.88],
+                '胶州':[120.03336,36.264622],
+                '银川':[106.27,38.47],
+                '张家港':[120.555821,31.875428],
+                '三门峡':[111.19,34.76],
+                '锦州':[121.15,41.13],
+                '南昌':[115.89,28.68],
+                '柳州':[109.4,24.33],
+                '三亚':[109.511909,18.252847],
+                '自贡':[104.778442,29.33903],
+                '吉林':[126.57,43.87],
+                '阳江':[111.95,21.85],
+                '泸州':[105.39,28.91],
+                '西宁':[101.74,36.56],
+                '宜宾':[104.56,29.77],
+                '呼和浩特':[111.65,40.82],
+                '成都':[104.06,30.67],
+                '大同':[113.3,40.12],
+                '镇江':[119.44,32.2],
+                '桂林':[110.28,25.29],
+                '张家界':[110.479191,29.117096],
+                '宜兴':[119.82,31.36],
+                '北海':[109.12,21.49],
+                '西安':[108.95,34.27],
+                '金坛':[119.56,31.74],
+                '东营':[118.49,37.46],
+                '牡丹江':[129.58,44.6],
+                '遵义':[106.9,27.7],
+                '绍兴':[120.58,30.01],
+                '扬州':[119.42,32.39],
+                '常州':[119.95,31.79],
+                '潍坊':[119.1,36.62],
+                '重庆':[106.54,29.59],
+                '台州':[121.420757,28.656386],
+                '南京':[118.78,32.04],
+                '滨州':[118.03,37.36],
+                '贵阳':[106.71,26.57],
+                '无锡':[120.29,31.59],
+                '本溪':[123.73,41.3],
+                '克拉玛依':[84.77,45.59],
+                '渭南':[109.5,34.52],
+                '马鞍山':[118.48,31.56],
+                '宝鸡':[107.15,34.38],
+                '焦作':[113.21,35.24],
+                '句容':[119.16,31.95],
+                '北京':[116.46,39.92],
+                '徐州':[117.2,34.26],
+                '衡水':[115.72,37.72],
+                '包头':[110,40.58],
+                '绵阳':[104.73,31.48],
+                '乌鲁木齐':[87.68,43.77],
+                '枣庄':[117.57,34.86],
+                '杭州':[120.19,30.26],
+                '淄博':[118.05,36.78],
+                '鞍山':[122.85,41.12],
+                '溧阳':[119.48,31.43],
+                '库尔勒':[86.06,41.68],
+                '安阳':[114.35,36.1],
+                '开封':[114.35,34.79],
+                '济南':[117,36.65],
+                '德阳':[104.37,31.13],
+                '温州':[120.65,28.01],
+                '九江':[115.97,29.71],
+                '邯郸':[114.47,36.6],
+                '临安':[119.72,30.23],
+                '兰州':[103.73,36.03],
+                '沧州':[116.83,38.33],
+                '临沂':[118.35,35.05],
+                '南充':[106.110698,30.837793],
+                '天津':[117.2,39.13],
+                '富阳':[119.95,30.07],
+                '泰安':[117.13,36.18],
+                '诸暨':[120.23,29.71],
+                '郑州':[113.65,34.76],
+                '哈尔滨':[126.63,45.75],
+                '聊城':[115.97,36.45],
+                '芜湖':[118.38,31.33],
+                '唐山':[118.02,39.63],
+                '平顶山':[113.29,33.75],
+                '邢台':[114.48,37.05],
+                '德州':[116.29,37.45],
+                '济宁':[116.59,35.38],
+                '荆州':[112.239741,30.335165],
+                '宜昌':[111.3,30.7],
+                '义乌':[120.06,29.32],
+                '丽水':[119.92,28.45],
+                '洛阳':[112.44,34.7],
+                '秦皇岛':[119.57,39.95],
+                '株洲':[113.16,27.83],
+                '石家庄':[114.48,38.03],
+                '莱芜':[117.67,36.19],
+                '常德':[111.69,29.05],
+                '保定':[115.48,38.85],
+                '湘潭':[112.91,27.87],
+                '金华':[119.64,29.12],
+                '岳阳':[113.09,29.37],
+                '长沙':[113,28.21],
+                '衢州':[118.88,28.97],
+                '廊坊':[116.7,39.53],
+                '菏泽':[115.480656,35.23375],
+                '合肥':[117.27,31.86],
+                '武汉':[114.31,30.52],
+                '大庆':[125.03,46.58]
+            };
+
+            var convertData = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var geoCoord = geoCoordMap[data[i].name];
+                    if (geoCoord) {
+                        res.push({
+                            name: data[i].name,
+                            value: geoCoord.concat(data[i].value)
+                        });
+                    }
+                }
+                return res;
+            };
+
+            var convertLineData = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var dataItem = data[i];
+                    var fromCoord = geoCoordMap[dataItem[0].name];
+                    var toCoord = geoCoordMap[dataItem[1].name];
+                    if (fromCoord && toCoord) {
+                        res.push({
+                            fromName: dataItem[0].name,
+                            toName: dataItem[1].name,
+                            coords: [fromCoord, toCoord]
+                        });
+                    }
+                }
+                return res;
+            };
+
+            function renderItem(params, api) {
+                var coords = [
+                    [116.7,39.53],
+                    [103.73,36.03],
+                    [112.91,27.87],
+                    [120.65,28.01],
+                    [119.57,39.95]
+                ];
+
+                var points = [];
+                for (var i = 0; i < coords.length; i++) {
+                    points.push(api.coord(coords[i]));
+                }
+
+                var color = api.visual('color');
+
+                return {
+                    type: 'polygon',
+                    shape: {
+                        points: echarts.graphic.clipPointsByRect(points, {
+                            x: params.coordSys.x,
+                            y: params.coordSys.y,
+                            width: params.coordSys.width,
+                            height: params.coordSys.height
+                        })
+                    },
+                    style: api.style({
+                        fill: color,
+                        stroke: echarts.color.lift(color)
+                    })
+                };
+            }
+
+            var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+            option = {
+                backgroundColor: '#404a59',
+                title: {
+                    text: '中国地图',
+                    subtext: 'data from RAP',
+                    //sublink: 'http://www.pm25.in',
+                    left: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                tooltip : {
+                    trigger: 'item'
+                },
+                bmap: {
+                    center: [104.114129, 37.550339],
+                    zoom: 4,
+                    roam: true,
+                    mapStyle: {
+                        styleJson: [
+                                {
+                                    "featureType": "water",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#044161"
+                                    }
+                                },
+                                {
+                                    "featureType": "land",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "boundary",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#064f85"
+                                    }
+                                },
+                                {
+                                    "featureType": "railway",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#005b96",
+                                        "lightness": 1
+                                    }
+                                },
+                                {
+                                    "featureType": "highway",
+                                    "elementType": "labels",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "geometry",
+                                    "stylers": {
+                                        "color": "#004981"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#00508b"
+                                    }
+                                },
+                                {
+                                    "featureType": "poi",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "green",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#056197",
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "subway",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "manmade",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "local",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "arterial",
+                                    "elementType": "labels",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                },
+                                {
+                                    "featureType": "boundary",
+                                    "elementType": "geometry.fill",
+                                    "stylers": {
+                                        "color": "#029fd4"
+                                    }
+                                },
+                                {
+                                    "featureType": "building",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "color": "#1a5787"
+                                    }
+                                },
+                                {
+                                    "featureType": "label",
+                                    "elementType": "all",
+                                    "stylers": {
+                                        "visibility": "off"
+                                    }
+                                }
+                        ]
+                    }
+                },
+                series : [
+                    /*{
+                        name: 'ap_numbers',
+                        type: 'scatter',
+                        coordinateSystem: 'bmap',
+                        data: convertData(data),
+                        symbolSize: function (val) {
+                            return val[2]/8 + 10;
+                        },
+                        label: {
+                            normal: {
+                                formatter: '{b}',
+                                position: 'right',
+                                show: false
+                            },
+                            emphasis: {
+                                show: true
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#ddb926'
+                            },
+                            //layoutCenter: ['10%', '20%'],
+                            // 如果宽高比大于 1 则宽度为 100，如果小于 1 则高度为 100，保证了不超过 100x100 的区域
+                            //layoutSize: 100
+                        }
+                    },*/
+                    {
+                        name: 'Point',
+                        type: 'effectScatter',
+                        coordinateSystem: 'bmap',
+                        data: convertData(data.sort(function (a, b) {
+                            return b.value - a.value;
+                        }).slice(0, 7)),
+                        symbolSize: function (val) {
+                            return val[2]/8 + 10;
+                        },
+                        showEffectOn: 'emphasis',
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        hoverAnimation: true,
+                        label: {
+                            normal: {
+                                formatter: '{b}',
+                                position: 'right',
+                                show: true
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#f4e925',
+                                shadowBlur: 10,
+                                shadowColor: '#333',
+                                opacity: 0.7
+                            }
+                        },
+
+                        zlevel: 1
+                    },{
+                        name: 'Line',
+                        type: 'lines',
+                        coordinateSystem: 'bmap',
+                        data: convertLineData(lineData),
+                        zlevel: 2,
+                        symbol: ['none', 'arrow'],
+                        symbolSize: 10,
+                        effect: {
+                            show: true,
+                            period: 6,
+                            trailLength: 0,
+                            symbolSize: 15,
+                            symbol: planePath,
+                            shadowBlur: 10
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: '#a6c84c',
+                                width: 1,
+                                opacity: 0.6,
+                                curveness: 0.2
+                            }
+                        },
+                    }
+                    /*,
+                    {
+                        type: 'custom',
+                        coordinateSystem: 'bmap',
+                        renderItem: renderItem,
+                        itemStyle: {
+                            normal: {
+                                opacity: 0.7
+                            }
+                        },
+                        animation: false,
+                        silent: true,
+                        data: [0],
+                        z: -10
+                    }*/
+                    /*
+                    {
+                        name: 'Line',
+                        type: 'map',
+                        oordinateSystem: 'bmap',
+                        data: convertData(data),
+                        markLine : {
+                            smooth:true,
+                            effect : {
+                                show: true,
+                                scaleSize: 1,
+                                period: 30,
+                                color: '#fff',
+                                shadowBlur: 10
+                            },
+                            itemStyle : {
+                                normal: {
+                                    borderWidth:1,
+                                    lineStyle: {
+                                        type: 'solid',
+                                        shadowBlur: 10
+                                    }
+                                }
+                            },
+                            data : [
+                                [{name:'上海'}, {name:'北京',value:95}]
+                            ]
+                        },
+                        markPoint : {
+                            symbol:'emptyCircle',
+                            symbolSize : function (v){
+                                return 10 + v/10
+                            },
+                            effect : {
+                                show: true,
+                                shadowBlur : 0
+                            },
+                            itemStyle:{
+                                normal:{
+                                    label:{show:false}
+                                },
+                                emphasis: {
+                                    label:{position:'top'}
+                                }
+                            },
+                            data : [
+                                {name:'上海',value:90},
+                                {name:'北京',value:95}
+                            ]
+                        }
+                    }*/
+                ]
+            };
+
+            //var bmap = chart.getModel().getComponent('bmap').getBMap();
+            //bmap.addControl(new BMap.MapTypeControl());
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
         <div class="text_box3">
-            <div class="title3">美丽的青岛</div>
-            <div class="subtitle3">是您最初开始使用它的地方</div>
+            <div class="title3">2017年4月22日</div>
+            <div class="subtitle3">Kangaroo从上海来到了北京</div>
         </div>
 
         <div class="arrow"></div>
     </div>
     <div class="page">
+        <div id="main4_1" class="use_time_box4"></div>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main4_1'));
+
+            option = {
+                title: {
+                    text: '按月使用情况'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['使用天数','PM25趋势']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                toolbox: {
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                },
+                yAxis: [
+                    {
+                        name: '使用天数',
+                        type: 'value',
+                        max: 31
+                    },
+                    {
+                        name: 'PM25趋势',
+                        //nameLocation: 'start',
+                        type: 'value',
+                        max: 125//,
+                        //inverse: true
+                    }
+                ],
+                series: [
+                    {
+                        name:'使用天数',
+                        type:'line',
+                        animationEasing: '使用天数',
+                        animationDuration: 1000,
+                        //stack: '总量',
+                        data:[0, 0, 0, 7, 10, 9, 12, 8, 15, 18, 21, 25]
+                    },
+                    {
+                        name:'PM25趋势',
+                        type:'line',
+                        animationEasing: 'PM25趋势',
+                        animationDuration: 1000,
+                        yAxisIndex: 1,
+                        //stack: '总量',
+                        data:[114, 70, 63, 53, 59, 42, 52, 38, 57, 61, 78, 120]
+                    }
+                ]
+            };
+
+            myChart.setOption(option);
+        </script>
         <div class="text_box4">
-            <div class="title4">9月后您的使用天数逐步增加</div>
-            <div class="subtitle4">4月最少为7天，11月最多为21天</div>
-            <div class="title4">您可能是在家中使用您的净化器</div>
-            <div class="subtitle4">经常在7点以后才开机，直到第二天早上6点</div>
+            <div class="subtitle4" style="padding-top:65%;">您累计使用空气进化器125天，开机时间757小时</div>
+            <div class="subtitle4">4月最少为7天，12月最多为25天</div>
+            <div class="subtitle4">击败了62.7%的同城用户</div>
+            <div class="subtitle4">但仍有</div>
+            <div class="title4">12天</div>
+            <div class="subtitle4" style="padding-top:2%;">PM2.5较高时未使用空气净化器</div>
+            <div class="subtitle4">建议开启并关注3M净化专家APP的PM2.5提醒功能</div>
         </div>
 
         <div class="arrow"></div>
     </div>
     <div class="page">
+        <div id="main5" class="use_hour_box5"></div>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main5'));
+
+            option = {
+                title: {
+                    text: '使用时段'//,
+                    //subtext: '纯属虚构'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#283b56'
+                        }
+                    }
+                },
+                legend: {
+                    data:['使用小时数', '使用小时数趋势']
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        dataView: {readOnly: false},
+                        restore: {},
+                        saveAsImage: {}
+                    }
+                },
+                dataZoom: {
+                    show: false,
+                    start: 0,
+                    end: 100
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['00点','02点','04点','06点','08点','10点','12点','14点','16点','18点','20点','22点']
+                },
+                yAxis: {
+                        type: 'value',
+                        scale: true,
+                        name: '小时',
+                        max: 2,
+                        min: 0,
+                        boundaryGap: [0.1, 0.1]
+                    },
+                series: [
+                    {
+                        name:'使用小时数',
+                        type:'bar',
+                        data:[1.97, 1.95, 1.83, 0.74, 0.21, 0.01, 0.02, 0.45, 0.77, 1.21, 1.57, 1.89]
+                    },
+                    {
+                        name:'使用小时数趋势',
+                        type:'line',
+                        data:[1.97, 1.95, 1.83, 0.74, 0.21, 0.01, 0.02, 0.45, 0.77, 1.21, 1.57, 1.89]
+                    }
+                ]
+            };
+
+            myChart.setOption(option);
+        </script>
         <div class="text_box5">
-            <div class="title5">您最常用的操作是：</div>
-            <div class="subtitle5">开启自动模式、切换风速至低或者极低</div>
-            <div class="subtitle5">以降低噪音保障更好的睡眠</div>
-            <div class="subtitle5">同时我们推荐<a href="https://detail.tmall.com/item.htm?spm=a1z10.3-b-s.w4011-14888737542.34.12d601b1OfbNcS&id=543218589756&rn=733f3192bbb8b8a861910f099f8da417&abbucket=13&skuId=3692559615268">新品儿童口罩</a>，为您的孩子提供全流程的完善保护</div>
+            <div class="title5">您更喜欢在夜晚使用空气净化器</div>
+            <div class="subtitle5">但并不是每次都开启睡眠模式</div>
+            <div class="title5">可以尝试设置定时睡眠或关机功能</div>
+            <div class="subtitle5">让您的睡眠更健康舒适</div>
         </div>
 
         <div class="arrow"></div>
     </div>
     <div class="page">
         <div class="text_box6">
-            <div class="title6">希望在新的一年里，3M空气净化器也能给您和家人提供更好的呼吸环境</div>
-            <div class="subtitle6"></div>
+            <div class="title6">平均净化效率44%左右</div>
+            <div class="subtitle6">请您注意在使用时关闭门窗</div>
+            <div class="subtitle6">并关注空气净化器有效空间大小</div>
+            <div class="subtitle6">提升净化效率</div>
+            <div class="title6">已净化灰尘超过10克</div>
+            <div class="subtitle6">滤网剩余寿命95%</div>
+            <div class="subtitle6">可以在12个月后更换滤网</div>
+        </div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="text_box7">
+            <div class="title7">您最常用的操作是：</div>
+            <img src="./img/other_user.png" style="width: 100%;" />
+            <div class="subtitle7">开机后关闭夜灯</div>
+            <div class="title7">推荐您使用APP设置夜灯开关默认值</div>
+            <div class="title7">同时我们推荐<a href="https://detail.tmall.com/item.htm?spm=a1z10.3-b-s.w4011-14888737542.34.12d601b1OfbNcS&id=543218589756&rn=733f3192bbb8b8a861910f099f8da417&abbucket=13&skuId=3692559615268">新品儿童口罩</a>，为您的孩子提供全流程的完善保护</div>
+        </div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
+        <div class="text_box8">
+            <div class="title8">希望在新的一年里，3M空气净化器也能给您和家人提供更好的呼吸环境</div>
+            <div class="subtitle8"></div>
         </div>
     </div>
 </div>
@@ -125,12 +871,12 @@
         gestureFollowing: true,
         onchange: function () {
             Typed.new(".title2", {
-                strings: ["Dear Lucca,</br></br>It's very appreciated that you choose 3M RAP Kangaroo.</br>Sience last Aprial, you have been using Kangaroo more than 6 hours a day.</br>Let's see how your Kangaroo help you to protect you and your family from bad air quality.</br></br>-- 3M CRSL"],
+                strings: ["亲爱的3M用户您好，</br></br>非常荣幸您在2017年中选择了我们的智能空气净化器产品，感谢您的信任将您和您家人的呼吸环境交给我们守护。</br></br>从4月22日起，我们已经陪您度过了263个日日夜夜，让我们看看这段日子以来我们为您带来了多少改变。</br></br>-- 3M"],
                 //三年前她与他相拒1400公里，</br>她在大同，他在上海，他们互不相识。</br>在众多选择中她从北京飞往了纽卡斯尔，</br>而他从上海飞往了伦敦，</br>那时他们相拒400公里。</br>不久后他们坐在同一个教室里，</br>那天他坐在第一排，她在最后一排。</br>时不时的遇见，</br>偶尔修同一门课，</br>见面时打个招呼，</br>那时他们开始坐在隔壁座位上课了。</br>一个小作业把他们绑在了一起，</br>她写程序，他也写程序，</br>写累了一起去逛街，一起去买菜做饭。</br>作业做完了他们勾搭到一起了。</br></br>三年后的这一天他们终于要结婚了.......
-                typeSpeed: 20,
+                typeSpeed: 80,
                 showCursor: false,
                 contentType: "html",
-                startDelay: 10
+                startDelay: 12
             });
         }
     });
