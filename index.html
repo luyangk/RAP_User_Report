@@ -758,6 +758,70 @@
         <div class="arrow"></div>
     </div>
     <div class="page">
+        <div id="main4_2" class="compare_others"></div>
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main4_2'));
+
+            option = {
+                title: {
+                    text: '「净化商」分析图'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['人群平均', '个人水平']
+                },
+                radar: {
+                    // shape: 'circle',
+                    name: {
+                        textStyle: {
+                            color: '#fff',
+                            backgroundColor: '#999',
+                            borderRadius: 3,
+                            padding: [3, 5]
+                       }
+                    },
+                    indicator: [
+                       { name: '室外空气净化力', max: 5},
+                       { name: '室内空气净化力', max: 5},
+                       { name: '睡眠保护力', max: 5},
+                       { name: '家庭保护力', max: 5},
+                       { name: '合理规划能力', max: 5}
+                    ]
+                },
+                series: [{
+                    name: '人群平均 vs 个人能力',
+                    type: 'radar',
+                    // areaStyle: {normal: {}},
+                    data : [
+                        {
+                            value : [3.8, 4.1, 3.6, 3.9, 3.7],
+                            name : '人群平均'
+                        },
+                         {
+                            value : [3.6, 3.7, 4.3, 3.4, 4.2],
+                            name : '个人能力'
+                        }
+                    ]
+                }]
+            };
+
+            myChart.setOption(option);
+        </script>
+        <div class="text_box4_2">
+            <div class="subtitle4_2" style="padding-top:5%;">「净化商」综合评价您对产品使用的效率</div>
+            <div class="subtitle4_2">室外空气净化力为开机情况下对PM2.5等指标进化效率的评分；</div>
+            <div class="subtitle4_2">室内空气净化力为开机情况下对室内甲醛、烟雾、宠物毛发等净化效率的评分；</div>
+            <div class="subtitle4_2">睡眠保护力为睡眠情况下对呼吸空气的净化能力的评分；</div>
+            <div class="subtitle4_2">家庭保护力为对家人活动环境保护能力的评分；</div>
+            <div class="subtitle4_2">合理规划能力为对空气情况恶化的响应能力的评分。</div>
+            <div class="title4_2">您在睡眠保护力和合理规划能力上远超人群平均水平</div>
+            <div class="title4_2">但在家庭保护力上还有提升空间</div>
+            <div class="subtitle4_2">建议在家人在场的情况下更多的使用净化器以保障家庭良好的呼吸环境</div>
+        </div>
+
+        <div class="arrow"></div>
+    </div>
+    <div class="page">
         <div id="main5" class="use_hour_box5"></div>
         <script type="text/javascript">
             var myChart = echarts.init(document.getElementById('main5'));
@@ -873,7 +937,7 @@
             Typed.new(".title2", {
                 strings: ["亲爱的3M用户您好，</br></br>非常荣幸您在2017年中选择了我们的智能空气净化器产品，感谢您的信任将您和您家人的呼吸环境交给我们守护。</br></br>从4月22日起，我们已经陪您度过了263个日日夜夜，让我们看看这段日子以来我们为您带来了多少改变。</br></br>-- 3M"],
                 //三年前她与他相拒1400公里，</br>她在大同，他在上海，他们互不相识。</br>在众多选择中她从北京飞往了纽卡斯尔，</br>而他从上海飞往了伦敦，</br>那时他们相拒400公里。</br>不久后他们坐在同一个教室里，</br>那天他坐在第一排，她在最后一排。</br>时不时的遇见，</br>偶尔修同一门课，</br>见面时打个招呼，</br>那时他们开始坐在隔壁座位上课了。</br>一个小作业把他们绑在了一起，</br>她写程序，他也写程序，</br>写累了一起去逛街，一起去买菜做饭。</br>作业做完了他们勾搭到一起了。</br></br>三年后的这一天他们终于要结婚了.......
-                typeSpeed: 80,
+                typeSpeed: 30,
                 showCursor: false,
                 contentType: "html",
                 startDelay: 12
